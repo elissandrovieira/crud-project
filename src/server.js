@@ -1,10 +1,12 @@
 const express = require('express')
 const path = require('path')
+const db = require('./database')
 const routes = require('./routes')
 
 const app = express()
 
-
+//database conection
+db.connect()
 
 //set template engine
 app.set('view engine', 'ejs')
