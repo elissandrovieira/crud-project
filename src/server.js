@@ -1,7 +1,10 @@
 const express = require('express')
 const path = require('path')
+const routes = require('./routes')
 
 const app = express()
+
+
 
 //set template engine
 app.set('view engine', 'ejs')
@@ -15,12 +18,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 //enable server to receive data by post (form)
 app.use(express.urlencoded({ extended: true }))
 
-//routes
-app.get('/',(req,res) => {
-    res.render('index', {
-        title:'Test title'
-    })
-})
+//set routes
+app.use('/', routes)
 
 //404 error
 app.use((req, res) => {
