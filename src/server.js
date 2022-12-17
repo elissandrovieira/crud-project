@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+
 const db = require('./database')
 const routes = require('./routes')
 
@@ -11,8 +12,8 @@ db.connect()
 //set template engine
 app.set('view engine', 'ejs')
 
-//set static files
-app.use(express.static(path.join(__dirname, 'views')))
+//set static files inside src
+app.set('views', path.join(__dirname, 'views'))
 
 //set public files
 app.use(express.static(path.join(__dirname, 'public')))
