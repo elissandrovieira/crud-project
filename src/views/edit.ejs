@@ -7,24 +7,20 @@
     <%- include('partials/navibar.ejs') %>
     <h1><%= title %> </h1>
 
-    <form action="/register/add" method="post">
+    <form action="/edit/<%= user._id %> " method="post">
         <div>
             <label for="name">Name</label>
-            <input type="text" name="name" placeholder="Your name here">
+            <input type="text" name="name" placeholder="Your name here" value="<%= user.name %>">
         </div>
         <div>
             <label for="age">Age</label>
-            <input type="number" name="age" placeholder="Your age here">
+            <input type="number" name="age" placeholder="Your age here" value="<%= user.age %>">
         </div>
         <div>
             <label for="email">E-mail</label>
-            <input type="email" name="email" placeholder="Your email here">
+            <input type="email" name="email" placeholder="Your email here" value="<%= user.email %>">
         </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="password" name="password" placeholder="Set your password">
-        </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Save</button>
     </form>
 
     <% if(typeof message !== 'undefined'){%>
